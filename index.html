@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+      <meta charset="UTF-8">
+      <title>Material Toolbar</title>  
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'> 
+      <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+      <link rel='stylesheet' href="css/style.css">
+    </head>
+    <body>
+    <!-- Context Menu -->
+    <div class="menu">
+      <ul class="menu-options collection" style="margin-top:0px;margin-bottom:0px;">
+        <li class="menu-option collection-item" style="padding:0px;"><button id="menu_note" class="waves-effect waves-red btn-flat" style="width: 100%"><i class="material-icons left">note</i>Note</button></li>
+          <li class="menu-option collection-item" style="padding:0px;"><button id="menu_discuss" class="waves-effect waves-red btn-flat" style="width: 100%"><i class="material-icons left">forum</i>Discuss</button></li>
+        <li class="menu-option collection-item" style="padding:0px;"><button id="menu_close" class="waves-effect waves-red btn-flat" style="width: 100%"><i class="material-icons left">close</i>Close</button></li>
+      </ul>
+    </div>
+        
+    <!-- Example lesson plan annotation -->
+    <p>Highlight and right click me!</p>
+    <p>Highlight and right click me!</p>
+    <p>Highlight and right click me!</p>
+        
+    <!-- Example video player -->
+    <div id='media-player' style="width: 450px;background-color:black;text-align: center;">
+         <video id='media-video' controls>
+            <source src='asset/BigBuckBunny_320x180.mp4' type='video/mp4'>
+         </video>
+         <div id='media-controls'></div>
+      </div>
+    <div id='media-controls' style="width:450px;background-color:black;text-align: center;padding-bottom: 25px;">
+        <button id='play-pause-button' class='play btn-floating btn-small waves-effect red waves-light' title='play' onclick='togglePlayPause();'><i class="material-icons">play_arrow</i></button>
+        <button id='stop-button' class='stop btn-floating btn-small waves-effect red waves-light' title='stop' onclick='stopPlayer();'><i class="material-icons">stop</i></button>
+        <button id='replay-button' class='replay btn-floating btn-small waves-effect red waves-light' title='replay' onclick='replayMedia();'><i class="material-icons">replay</i></button>
+        <div class="progress" style="display:inline-block;width:200px;vertical-align: middle;">
+            <div id="progress-bar" class="determinate" style="width: 0%"></div>
+        </div>
+        <button id='volume-inc-button' class='volume-plus btn-floating btn-small waves-effect red waves-light' title='increase volume'
+onclick='changeVolume("+");'><i class="material-icons">volume_up</i></button>
+<button id='volume-dec-button' class='volume-minus btn-floating btn-small waves-effect red waves-light' title='decrease volume'
+onclick='changeVolume("-");'><i class="material-icons">volume_down</i></button>
+        <button id='mute-button' class='mute btn-floating btn-small waves-effect red waves-light' title='mute'
+onclick='toggleMute();'><i class="material-icons">volume_mute</i></button>
+    </div>
+    <div id="media-visualization" style="display:relative;background-color:black;height:50px;width:450px;">
+        <div id="media-visualization-playhead" style="width:5px;background-color:teal;position:absolute;left:5px;z-index:99;height:50px;"></div>
+        <div class="media-visualization-discussion" style="width:5px;background-color:#f44336;position:absolute;left:25px;z-index:98;height:50px;"></div>
+    </div> 
+        
+    <!-- Toolbar -->
+    <div class="fixed-action-btn">
+      <a id="btn_menu" class="btn-floating btn-large red">
+        <i class="large material-icons">mode_edit</i>
+      </a>
+      <ul>
+        <li><a id="btn_settings" data-target="slide-out" class="btn-floating red waves-effect waves-light sidenav-trigger"><i class="material-icons">settings</i></a></li>
+        <li><a id="btn_note" data-target="slide-out" class="btn-floating red waves-effect waves-light sidenav-trigger"><i class="material-icons">note</i></a></li>
+        <li><a id="btn_forum" data-target="slide-out" class="btn-floating red waves-effect waves-light sidenav-trigger"><i class="material-icons">forum</i></a></li>
+      </ul>
+    </div><!-- End of Toolbar -->
+    <!-- Sidebar -->
+    <ul id="slide-out" class="sidenav" style="width:500px;">
+      <!-- Close Icon -->
+      <div style="padding-right: 10px; padding-top: 10px; text-align:right; margin-bottom: 10px;">
+        <a id="btn_close" class="sidenav-close right-align btn-floating waves-effect waves-light red" href="#!"><i class="material-icons">close</i></a>
+      </div> <!-- End of Close Icon-->
+      <!-- Sign In/Out Account -->
+      <div id="section_authentification">
+          <div class="row">
+            <div class="col s10">
+                <form action="#">
+                    <h5>Sign In</h5>
+                    <div class="add_authentification_here">Sign in will be added here</div>
+                    <h5>Persona</h5>
+                    <p>
+                      <label>
+                        <input id="input_per1" name="group1" type="radio" checked />
+                        <span><img src="asset/per1.png" height="40px"></span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input id="input_per2" name="group1" type="radio" />
+                        <span><img src="asset/per2.png" height="40px"></span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input id="input_per3" name="group1" type="radio"  />
+                        <span><img src="asset/per3.png" height="40px"></span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input id="input_per4" name="group1" type="radio"/>
+                        <span><img src="asset/per4.png" height="40px"></span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input id="input_per5" name="group1" type="radio"/>
+                        <span><img src="asset/per5.png" height="40px"></span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input id="input_per6" name="group1" type="radio" />
+                        <span><img src="asset/per6.png" height="40px"></span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input id="input_per7" name="group1" type="radio"  />
+                        <span><img src="asset/per7.png" height="40px"></span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input id="input_per8" name="group1" type="radio"/>
+                        <span><img src="asset/per8.png" height="40px"></span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input id="input_per9" name="group1" type="radio"/>
+                        <span><img src="asset/per9.png" height="40px"></span>
+                      </label>
+                    </p>
+                  </form>
+            </div>
+          </div>
+      </div>
+      <!-- Discussion Forum -->
+      <div id="section_forum" style="display:none;">
+        <!-- Content -->
+        <h5>Discussion Forum</h5>
+        <div id="cont_forum" style="overflow-y: scroll;height:600px;">
+          <div class="row">
+            
+            <div class="col s10">
+              
+              <div class="card horizontal">
+                  <div class="card-image" style="width:150px;padding-left:5px;padding-top:24px;">
+                    <img src="asset/per1.png">
+                  </div>
+                  <div class="card-content">
+                  <p><span style="font-weight:bold;">Eric Poitras:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col s10 offset-s2">
+                <div class="card horizontal">
+                    <div class="card-image" style="width:150px;padding-left:5px;padding-top:24px;">
+                        <img src="asset/per2.png">
+                      </div>
+                    <div class="card-content">
+                    <p><span style="font-weight:bold;">Student 1:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s10 offset-s2">
+                <div class="card horizontal">
+                    <div class="card-image" style="width:150px;padding-left:5px;padding-top:24px;">
+                        <img src="asset/per2.png">
+                      </div>
+                    <div class="card-content">
+                    <p><span style="font-weight:bold;">Student 1:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s10 offset-s2">
+                <div class="card horizontal">
+                    <div class="card-image" style="width:150px;padding-left:5px;padding-top:24px;">
+                        <img src="asset/per2.png">
+                      </div>
+                    <div class="card-content">
+                    <p><span style="font-weight:bold;">Student 1:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s10 offset-s2">
+                <div class="card horizontal">
+                    <div class="card-image" style="width:150px;padding-left:5px;padding-top:24px;">
+                        <img src="asset/per2.png">
+                      </div>
+                    <div class="card-content">
+                    <p><span style="font-weight:bold;">Student 1:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col s12">
+                    <ul class="pagination" style="width:100%;height:50px;text-align: center;">
+                        <li class=""><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                        <li class=""><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                    </ul>
+                </div>
+            </div>
+        <div class="divider"></div>
+        <!-- Form -->
+        <form class="col s12" style="margin-left:5px;margin-right:5px;">
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="input_message_forum" class="materialize-textarea"></textarea>
+                <label for="input_message_forum">Message</label>
+              </div>
+              <div class="input-field col s12">
+                <a id="btn_submit_message" class="btn waves-effect waves-light red" style="width:100%;">SEND</a>
+              </div>
+            </div>
+          </form>
+      </div><!-- End of discussion forum-->
+      <!-- Annotation Tool -->
+      <div id="section_annotation" style="display:none;">
+          <!-- Content -->
+          <h5>Annotations</h5>
+          <div class="row">
+            <div class="col s12" style="padding:0px;">
+                
+                <ul id="cont_annotation" class="collection" style="overflow-y:scroll;height:500px;">
+                <li class="collection-item avatar">
+                  <img src="asset/per1.png" alt="" class="circle">
+                  <span class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span>
+                  <p>Maecenas non semper mauris. Donec molestie tempor eleifend. Mauris laoreet elit rutrum, fringilla nisl sit amet, tempus ante. Morbi vel eleifend nunc. Suspendisse interdum blandit dolor, vitae accumsan urna tristique nec. Donec malesuada feugiat fermentum. Morbi ac nunc eu felis mattis sollicitudin. Proin vel fringilla ex. Fusce at mattis justo. Sed imperdiet sodales iaculis.</p>
+                </li>
+                <li class="collection-item avatar">
+                  <img src="asset/per1.png" alt="" class="circle">
+                  <span class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span>
+                  <p>Mauris eleifend nunc sit amet nunc elementum, a lobortis est cursus. Ut ut odio consectetur, mattis est tempus, semper erat. Ut quis gravida ex, id tristique mi. Etiam elementum elit vel sodales pretium. Maecenas lobortis ultricies ex, a dignissim justo volutpat et. Vestibulum nec sodales nisi. Nulla facilisi. Duis accumsan in augue sed lobortis. Proin sodales eu magna eu accumsan. Nunc sagittis vulputate sem, a imperdiet lorem mattis a.</p>
+                </li>
+                <li class="collection-item avatar">
+                  <img src="asset/per1.png" alt="" class="circle">
+                  <span class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span>
+                  <p>Etiam vel mauris ut arcu vestibulum pulvinar a nec ante. Vivamus venenatis eu lorem in venenatis. Donec diam dui, fermentum at laoreet id, vehicula faucibus elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam tellus diam, faucibus a dapibus porttitor, porta in eros. Suspendisse vel vestibulum metus. Praesent a interdum erat. Duis nec justo elit. Praesent consectetur interdum ligula sed commodo.</p>
+                </li>
+            </ul>
+            </div>
+          </div>
+            <div class="row">
+                <div class="col s12">
+                    <ul class="pagination" style="width:100%;height:50px;text-align: center;">
+                        <li class=""><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                        <li class=""><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <!-- Form -->
+            <form class="col s12" style="margin-left:5px;margin-right:5px;">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="input_title_annot" class="materialize-textarea"></textarea>
+                  <label for="input_title_annot">Title</label>
+                </div>
+                <div class="input-field col s12">
+                  <textarea id="input_note_annot" class="materialize-textarea"></textarea>
+                  <label for="input_note_annot">Note</label>
+                </div>
+                <div class="input-field col s12">
+                  <a id="btn_submit_note" class="btn waves-effect waves-light red" style="width:100%;">SAVE</a>
+                </div>
+              </div>
+            </form>
+      </div> <!-- End of Annotation Tool -->
+    </ul> <!-- End of Sidebar -->
+    <!-- Tap Target Structure -->
+      <div class="tap-target no-autoinit" data-target="btn_menu">
+        <div class="tap-target-content">
+          <div style="color: white;">
+              <h5 id="tutorial_title">nAnnotator</h5>
+              <p id="tutorial_description">How to get started...</p>
+              <ul class="pagination">
+                  <li id="cont_btn_1" class="active waves-effect"><a id="btn_1" href="#!">1</a></li>
+                  <li id="cont_btn_2" class="waves-effect"><a id="btn_2" href="#!">2</a></li>
+                  <li id="cont_btn_3" class="waves-effect"><a id="btn_3" href="#!">3</a></li>
+                  <li id="cont_btn_4" class="waves-effect"><a id="btn_4" href="#!">4</a></li>
+                  <li id="cont_btn_5" class="waves-effect"><a id="btn_5" href="#!">5</a></li>
+                </ul>
+          </div>
+        </div>
+      </div> <!-- End of Tap Target Structure -->
+        <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script>
+      <script src="js/config.js"></script>
+      <script src="js/data.js"></script>
+      <script src="js/variable.js"></script>
+      <script  src="js/main.js"></script>
+      <script src="js/listener.js"></script>
+      <script src="js/controller.js"></script>
+      <script src="js/router.js"></script>
+    </body>
+</html>

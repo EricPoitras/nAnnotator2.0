@@ -1,0 +1,21 @@
+.row{
+  margin-bottom: 0px;
+}
+.card-content{
+  text-align: justify;
+}
+.tap-target{
+  background-color: #e53935;
+}
+.pagination li a{
+  color: white;
+}
+
+/* Context Menu */
+.menu {
+  width: 150px;
+  box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  display: none;
+}
+
