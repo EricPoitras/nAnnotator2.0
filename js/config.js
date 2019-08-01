@@ -1,4 +1,5 @@
 config = {
     user: 'Eric Poitras',
-    url: ''
+    url: '',
+    persona: 'asset/per1.png'
 }

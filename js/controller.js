@@ -3,13 +3,8 @@ function set_forum_content(){
     
 }
 
-// TO DO: Read annotation content from database
+// TO DO: Read annotation content from database and store to annotation_list and display annotation_list in sidebar depending on config.js
 function set_annotation_content(){
-    
-}
-
-// TO DO: Post annotation
-function post_annotation(){
     
 }
 
@@ -25,8 +20,33 @@ function prompt_delivery(){
     M.toast({html: toastHTML});
 }
 
+function post_annotation(){
+    annotation.title = input_title_annot.value;
+    annotation.text = input_note_annot.value;
+    annotation.url = config.url;
+    annotation.user = config.user;
+    var d = new Date();
+    var time = d.getTime().toString();
+    annotation.time = time;
+    annotation.persona = config.persona;
+    console.log(annotation);
+    
+    annotation_list.push({
+        title: annotation.title,
+        text: annotation.text, 
+        persona: annotation.persona,
+        url: annotation.url,
+        sel: annotation.sel,
+        user: annotation.user,
+        session: annotation.session, 
+        time: annotation.time
+    });
+    console.log(annotation_list);
+}
+
 function set_user_persona(src){
     persona_src = src;
+    config.persona = src;
 }
 
 // Reset Sections
@@ -123,6 +143,7 @@ function getselectedtext(){
         }
     }
     console.log(text);
+    annotation.sel = text;
     input_note_annot.value = text;
     
     hide_all_views();
@@ -192,6 +213,7 @@ function updateProgressBar() {
    var percentage = Math.floor((100 / mediaPlayer.duration) *
    mediaPlayer.currentTime);
    progressBar.style.width = percentage + "%";
+   media_visualization_playhead.style.left = (percentage/100 * 445)+"px";
 }
 
 function resetPlayer() {

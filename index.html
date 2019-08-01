@@ -23,7 +23,7 @@
     <p>Highlight and right click me!</p>
         
     <!-- Example video player -->
-    <div id='media-player' style="width: 450px;background-color:black;text-align: center;">
+    <div id='media-player' style="width: 450px;background-color:black;text-align: center;border-top-left-radius: 5px;border-top-right-radius: 5px;">
          <video id='media-video' controls>
             <source src='asset/BigBuckBunny_320x180.mp4' type='video/mp4'>
          </video>
@@ -43,7 +43,7 @@ onclick='changeVolume("-");'><i class="material-icons">volume_down</i></button>
         <button id='mute-button' class='mute btn-floating btn-small waves-effect red waves-light' title='mute'
 onclick='toggleMute();'><i class="material-icons">volume_mute</i></button>
     </div>
-    <div id="media-visualization" style="display:relative;background-color:black;height:50px;width:450px;">
+    <div id="media-visualization" style="display:relative;background-color:#181818;height:50px;width:450px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
         <div id="media-visualization-playhead" style="width:5px;background-color:teal;position:absolute;left:5px;z-index:99;height:50px;"></div>
         <div class="media-visualization-discussion" style="width:5px;background-color:#f44336;position:absolute;left:25px;z-index:98;height:50px;"></div>
     </div> 

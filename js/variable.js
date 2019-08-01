@@ -66,6 +66,7 @@ var document_fragment_string;
 // Media Player
 var mediaPlayer;
 var progressBar = document.getElementById('progress-bar');
+var media_visualization_playhead = document.getElementById("media-visualization-playhead");
 
 
 
