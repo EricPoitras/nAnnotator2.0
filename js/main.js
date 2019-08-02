@@ -9,9 +9,11 @@
     // Initialize drop down menu
     var elems3 = document.querySelectorAll('.dropdown-trigger');
     var instances3 = M.Dropdown.init(elems3);
+    
     // Load tutorial message
     instances2[0].open();
       
+    
     // Initialize custom media player
     initialiseMediaPlayer();
        
@@ -24,26 +26,33 @@
       mediaPlayer.addEventListener('volumechange', function() {
    var btn = document.getElementById('mute-button');
    if (mediaPlayer.muted) changeButtonType(btn, 'unmute','<i class="material-icons">volume_up</i>', 'mute btn-floating btn-small waves-effect red waves-light');
-   else changeButtonType(btn, 'mute',  '<i class="material-icons">volume_mute</i>', 'mute btn-floating btn-small waves-effect red waves-light')
+   else changeButtonType(btn, 'mute',  '<i class="material-icons">volume_mute</i>', 'mute btn-floating btn-small waves-effect red waves-light');
 }, false);
 
 mediaPlayer.addEventListener('play', function() {
    var btn = document.getElementById('play-pause-button');
-   changeButtonType(btn, 'pause', "<i class='material-icons'>pause</i>",'pause btn-floating btn-small waves-effect red waves-light')
+   changeButtonType(btn, 'pause', "<i class='material-icons'>pause</i>",'pause btn-floating btn-small waves-effect red waves-light');
 }, false);
 mediaPlayer.addEventListener('pause', function() {
    var btn = document.getElementById('play-pause-button');
-   changeButtonType(btn, 'play', "<i class='material-icons'>play_arrow</i>",'play btn-floating btn-small waves-effect red waves-light')
+   changeButtonType(btn, 'play', "<i class='material-icons'>play_arrow</i>",'play btn-floating btn-small waves-effect red waves-light');
 }, false);
   });
+
+
 
   // Initialize the sidebar 
   M.AutoInit();
 
 //Initialize the session value 
 config.url = window.location.href;
-annotation.session = Math.random().toString(36).substring(7);
+config.session = Math.random().toString(36).substring(7);
 
+// Set the content from the Firebase database TO DO: Should be set after sign in authentification
+set_forum_content(forum_index);
+set_annotation_content(annotation_index);
+set_discussion_topics();
+set_markers();
 
 
 

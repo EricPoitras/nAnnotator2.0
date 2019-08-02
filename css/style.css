@@ -19,3 +19,14 @@
   display: none;
 }
 
+#cont_forum div.card-content{
+    width: 700px;
+}
+
+.media-visualization-discussion{
+    width:5px;
+    background-color:#f44336;
+    position:absolute;
+    z-index:98;
+    height:50px;
+}

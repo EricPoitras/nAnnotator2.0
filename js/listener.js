@@ -10,18 +10,19 @@ window.addEventListener("contextmenu", e => {
 });
 
 menu_close.addEventListener("click", function(){
-    console.log("close");
+    //console.log("close");
     //if(menuVisible)toggleMenu("hide");
     menu.style.display = "none";
 });
 
 menu_note.addEventListener('click', function(){
-    console.log("take a note"); 
+    //console.log("take a note"); 
     highlight_text();
 });
 
 menu_discuss.addEventListener('click', function(){
-    console.log("discuss with peers");
+    //console.log("discuss with peers");
+    set_discussion_post();
 });
 
 document.addEventListener('selectionchange', () => { 
@@ -44,7 +45,7 @@ document.addEventListener('selectionchange', () => {
             html = document.selection.createRange().htmlText;
         }
     }
-    console.log(html);
+    //console.log(html);
 });
 
 // Submit an annotation
@@ -66,16 +67,22 @@ btn_settings.addEventListener('click',function(){
 
 // Annotation button clicked - Show section
 btn_note.addEventListener('click',function(){
+    
+    prompt_delivery();
+    
     hide_all_views();
     section_annotation.style.display = "block";
-    set_annotation_content();
+    set_annotation_content(annotation_index);
 });
 
 // Discussion forum button clicked - Show section
 btn_forum.addEventListener('click',function(){
+    
+    prompt_delivery();
+    
     hide_all_views();
     section_forum.style.display = "block";
-    set_forum_content();
+    set_forum_content(forum_index);
 });
 
 // Tutorial buttons - Show title and description for each step 
@@ -133,6 +140,51 @@ input_per8.addEventListener('click',function(){
 
 input_per9.addEventListener('click',function(){
     set_user_persona("asset/per9.png");
+});
+
+input_marker_switch.addEventListener('click',function(){
+   check_marker();
+});
+
+btn_decrement_forumindex.addEventListener('click',function(){
+    forum_index = forum_index - 1;
+    if(forum_index < 0){
+        forum_index = 0;
+    }
+    console.log(forum_index);
+    set_forum_content(forum_index);
+});
+
+btn_increment_forumindex.addEventListener('click', function(){
+    forum_index = forum_index + 1;
+    if((forum_index+5) > forum_list.length){
+        forum_index = forum_index - 1;
+    }
+    console.log(forum_index);
+    set_forum_content(forum_index);
+});
+
+btn_decrement_annotationindex.addEventListener('click',function(){
+    annotation_index = annotation_index - 1;
+    if(annotation_index < 0){
+        annotation_index = 0;
+    }
+    console.log(annotation_index);
+    set_annotation_content(annotation_index);
+});
+
+btn_increment_annotationindex.addEventListener('click',function(){
+    annotation_index = annotation_index + 1;
+    if((annotation_index+3) > annotation_list.length){
+        annotation_index = annotation_index - 1;
+    }
+    console.log(annotation_index);
+    set_annotation_content(annotation_index);
+});
+
+input_discussion_topic.addEventListener('click',function(){
+    set_forum_content(forum_index);
+    console.log(input_discussion_topic.value);
 });
 
 

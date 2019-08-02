@@ -44,8 +44,7 @@ onclick='changeVolume("-");'><i class="material-icons">volume_down</i></button>
 onclick='toggleMute();'><i class="material-icons">volume_mute</i></button>
     </div>
     <div id="media-visualization" style="display:relative;background-color:#181818;height:50px;width:450px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
-        <div id="media-visualization-playhead" style="width:5px;background-color:teal;position:absolute;left:5px;z-index:99;height:50px;"></div>
-        <div class="media-visualization-discussion" style="width:5px;background-color:#f44336;position:absolute;left:25px;z-index:98;height:50px;"></div>
+        <div id="media-visualization-playhead" style="width:5px;background-color:teal;position:absolute;left:0px;z-index:99;height:50px;border-radius: 5px;"></div>
     </div> 
         
     <!-- Toolbar -->
@@ -135,65 +134,70 @@ onclick='toggleMute();'><i class="material-icons">volume_mute</i></button>
       <div id="section_forum" style="display:none;">
         <!-- Content -->
         <h5>Discussion Forum</h5>
-        <div id="cont_forum" style="overflow-y: scroll;height:600px;">
+        <div id="cont_forum" style="overflow-y: scroll;height:500px;">
           <div class="row">
-            
-            <div class="col s10">
-              
+              <div class="input-field col s12">
+                <select id="input_discussion_topic" class="browser-default">
+                  <option value="" disabled selected>Choose your topic</option>
+                </select>
+              </div>
+          </div>
+          <div class="row">
+            <div id="cont_message1" class="col s10">
               <div class="card horizontal">
                   <div class="card-image" style="width:150px;padding-left:5px;padding-top:24px;">
-                    <img src="asset/per1.png">
+                    <img id="img_message1" src="asset/per1.png">
                   </div>
                   <div class="card-content">
-                  <p><span style="font-weight:bold;">Eric Poitras:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                  <p id="text_message1"><span id="user_message1" style="font-weight:bold;">Eric Poitras:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
-              <div class="col s10 offset-s2">
+              <div id="cont_message2" class="col s10 offset-s2">
                 <div class="card horizontal">
                     <div class="card-image" style="width:150px;padding-left:5px;padding-top:24px;">
-                        <img src="asset/per2.png">
+                        <img id="img_message2" src="asset/per2.png">
                       </div>
                     <div class="card-content">
-                    <p><span style="font-weight:bold;">Student 1:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                    <p id="text_message2"><span id="user_message2" style="font-weight:bold;">Student 1:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col s10 offset-s2">
+              <div id="cont_message3" class="col s10 offset-s2">
                 <div class="card horizontal">
                     <div class="card-image" style="width:150px;padding-left:5px;padding-top:24px;">
-                        <img src="asset/per2.png">
+                        <img id="img_message3" src="asset/per2.png">
                       </div>
                     <div class="card-content">
-                    <p><span style="font-weight:bold;">Student 1:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                    <p id="text_message3"><span id="user_message3" style="font-weight:bold;">Student 1:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col s10 offset-s2">
+              <div id="cont_message4" class="col s10 offset-s2">
                 <div class="card horizontal">
                     <div class="card-image" style="width:150px;padding-left:5px;padding-top:24px;">
-                        <img src="asset/per2.png">
+                        <img id="img_message4" src="asset/per2.png">
                       </div>
                     <div class="card-content">
-                    <p><span style="font-weight:bold;">Student 1:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                    <p id="text_message4"><span id="user_message4" style="font-weight:bold;">Student 1:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col s10 offset-s2">
+              <div id="cont_message5" class="col s10 offset-s2">
                 <div class="card horizontal">
                     <div class="card-image" style="width:150px;padding-left:5px;padding-top:24px;">
-                        <img src="asset/per2.png">
+                        <img id="img_message5" src="asset/per2.png">
                       </div>
                     <div class="card-content">
-                    <p><span style="font-weight:bold;">Student 1:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                    <p id="text_message5"><span id="user_message5" style="font-weight:bold;">Student 1:</span> I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                   </div>
                 </div>
               </div>
@@ -202,8 +206,8 @@ onclick='toggleMute();'><i class="material-icons">volume_mute</i></button>
         <div class="row">
                 <div class="col s12">
                     <ul class="pagination" style="width:100%;height:50px;text-align: center;">
-                        <li class=""><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                        <li class=""><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                        <li class=""><a id="btn_decrement_forumindex" href="#!"><i class="material-icons">chevron_left</i></a></li>
+                        <li class=""><a id="btn_increment_forumindex" href="#!"><i class="material-icons">chevron_right</i></a></li>
                     </ul>
                 </div>
             </div>
@@ -214,6 +218,22 @@ onclick='toggleMute();'><i class="material-icons">volume_mute</i></button>
               <div class="input-field col s12">
                 <textarea id="input_message_forum" class="materialize-textarea"></textarea>
                 <label for="input_message_forum">Message</label>
+              </div>
+              <!-- Switch -->
+              <div class="input-field col s12" style="margin-top:0px;">
+                <div class="switch">
+                    <label>
+                      Add Marker on Video Playbar <br>Off
+                      <input id="input_marker_switch" type="checkbox">
+                      <span class="lever"></span>
+                      On
+                    </label>
+                </div>
+                <!--<form action="#">
+                    <p class="range-field">
+                      <input type="range" id="test5" min="0" max="100" disabled/>
+                    </p>
+                </form>-->
               </div>
               <div class="input-field col s12">
                 <a id="btn_submit_message" class="btn waves-effect waves-light red" style="width:100%;">SEND</a>
@@ -229,20 +249,20 @@ onclick='toggleMute();'><i class="material-icons">volume_mute</i></button>
             <div class="col s12" style="padding:0px;">
                 
                 <ul id="cont_annotation" class="collection" style="overflow-y:scroll;height:500px;">
-                <li class="collection-item avatar">
-                  <img src="asset/per1.png" alt="" class="circle">
-                  <span class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span>
-                  <p>Maecenas non semper mauris. Donec molestie tempor eleifend. Mauris laoreet elit rutrum, fringilla nisl sit amet, tempus ante. Morbi vel eleifend nunc. Suspendisse interdum blandit dolor, vitae accumsan urna tristique nec. Donec malesuada feugiat fermentum. Morbi ac nunc eu felis mattis sollicitudin. Proin vel fringilla ex. Fusce at mattis justo. Sed imperdiet sodales iaculis.</p>
+                <li id="cont_annotation1" class="collection-item avatar">
+                  <img id="user_annotation1" src="asset/per1.png" alt="" class="circle">
+                  <span id="title_annotation1" class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span>
+                  <p id="text_annotation1">Maecenas non semper mauris. Donec molestie tempor eleifend. Mauris laoreet elit rutrum, fringilla nisl sit amet, tempus ante. Morbi vel eleifend nunc. Suspendisse interdum blandit dolor, vitae accumsan urna tristique nec. Donec malesuada feugiat fermentum. Morbi ac nunc eu felis mattis sollicitudin. Proin vel fringilla ex. Fusce at mattis justo. Sed imperdiet sodales iaculis.</p>
                 </li>
-                <li class="collection-item avatar">
-                  <img src="asset/per1.png" alt="" class="circle">
-                  <span class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span>
-                  <p>Mauris eleifend nunc sit amet nunc elementum, a lobortis est cursus. Ut ut odio consectetur, mattis est tempus, semper erat. Ut quis gravida ex, id tristique mi. Etiam elementum elit vel sodales pretium. Maecenas lobortis ultricies ex, a dignissim justo volutpat et. Vestibulum nec sodales nisi. Nulla facilisi. Duis accumsan in augue sed lobortis. Proin sodales eu magna eu accumsan. Nunc sagittis vulputate sem, a imperdiet lorem mattis a.</p>
+                <li id="cont_annotation2" class="collection-item avatar">
+                  <img id="user_annotation2" src="asset/per1.png" alt="" class="circle">
+                  <span id="title_annotation2" class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span>
+                  <p id="text_annotation2">Mauris eleifend nunc sit amet nunc elementum, a lobortis est cursus. Ut ut odio consectetur, mattis est tempus, semper erat. Ut quis gravida ex, id tristique mi. Etiam elementum elit vel sodales pretium. Maecenas lobortis ultricies ex, a dignissim justo volutpat et. Vestibulum nec sodales nisi. Nulla facilisi. Duis accumsan in augue sed lobortis. Proin sodales eu magna eu accumsan. Nunc sagittis vulputate sem, a imperdiet lorem mattis a.</p>
                 </li>
-                <li class="collection-item avatar">
-                  <img src="asset/per1.png" alt="" class="circle">
-                  <span class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span>
-                  <p>Etiam vel mauris ut arcu vestibulum pulvinar a nec ante. Vivamus venenatis eu lorem in venenatis. Donec diam dui, fermentum at laoreet id, vehicula faucibus elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam tellus diam, faucibus a dapibus porttitor, porta in eros. Suspendisse vel vestibulum metus. Praesent a interdum erat. Duis nec justo elit. Praesent consectetur interdum ligula sed commodo.</p>
+                <li id="cont_annotation3" class="collection-item avatar">
+                  <img id="user_annotation3" src="asset/per1.png" alt="" class="circle">
+                  <span id="title_annotation3" class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span>
+                  <p id="text_annotation3">Etiam vel mauris ut arcu vestibulum pulvinar a nec ante. Vivamus venenatis eu lorem in venenatis. Donec diam dui, fermentum at laoreet id, vehicula faucibus elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam tellus diam, faucibus a dapibus porttitor, porta in eros. Suspendisse vel vestibulum metus. Praesent a interdum erat. Duis nec justo elit. Praesent consectetur interdum ligula sed commodo.</p>
                 </li>
             </ul>
             </div>
@@ -250,8 +270,8 @@ onclick='toggleMute();'><i class="material-icons">volume_mute</i></button>
             <div class="row">
                 <div class="col s12">
                     <ul class="pagination" style="width:100%;height:50px;text-align: center;">
-                        <li class=""><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                        <li class=""><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                        <li class=""><a id="btn_decrement_annotationindex" href="#!"><i class="material-icons">chevron_left</i></a></li>
+                        <li class=""><a id="btn_increment_annotationindex" href="#!"><i class="material-icons">chevron_right</i></a></li>
                     </ul>
                 </div>
             </div>
@@ -298,9 +318,9 @@ onclick='toggleMute();'><i class="material-icons">volume_mute</i></button>
       <script src="js/config.js"></script>
       <script src="js/data.js"></script>
       <script src="js/variable.js"></script>
-      <script  src="js/main.js"></script>
       <script src="js/listener.js"></script>
       <script src="js/controller.js"></script>
       <script src="js/router.js"></script>
+      <script  src="js/main.js"></script>
     </body>
 </html>
